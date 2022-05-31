@@ -12,12 +12,14 @@ function onStartBtnClick() {
     timeoutId = setInterval(() => {
     document.body.style.backgroundColor = getRandomHexColor();
     }, 1000);
-    refs.startBtn.disabled = true
+    refs.startBtn.disabled = true;
+    refs.stopBtn.disabled = false;
 }
 
 function onStopBtnClick() { 
     clearInterval(timeoutId)
     refs.startBtn.disabled = false;
+    refs.stopBtn.disabled = true;
 }
 
 function getRandomHexColor() {
