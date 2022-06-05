@@ -40,6 +40,10 @@ const timer = (targetDate) => {
     refs.startBtn.disabled = true;
     timeoutId = setInterval(() => {
       const delta = new Date(targetDate) - new Date();
+      if (delta <= 0) {
+        clearInterval(timeoutId);
+        return;
+       }
       const timeComponents = convertMs(delta);
       updateClockFace(timeComponents)
     }, 1000);
